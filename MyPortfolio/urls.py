@@ -17,9 +17,8 @@ from django.contrib import admin
 from django.urls import path
 
 from portfolio import views
-from django.conf.urls import include, url
 
 urlpatterns = [
-    url(r'admin/', admin.site.urls),
-    url(r'^$', views.Portfolio.as_view(), name='index'),
+    path('admin/', admin.site.urls),
+    path('', views.Portfolio.as_view(), name='index'),
 ]

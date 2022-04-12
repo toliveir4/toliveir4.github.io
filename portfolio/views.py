@@ -29,6 +29,7 @@ class Portfolio(View):
                           ["tiago.o.tocha@gmail.com"])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
+            return redirect("index")
 
         form = ContactForm()
         return render(request, "index.html", {'contactForm': form})

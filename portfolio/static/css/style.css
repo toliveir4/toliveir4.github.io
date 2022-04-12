@@ -45,6 +45,7 @@ h6 {
   background: #149ddd;
   width: 40px;
   height: 40px;
+  border: 1px solid #149ddd;
   border-radius: 50px;
   transition: all 0.4s;
 }
@@ -55,9 +56,11 @@ h6 {
   line-height: 0;
 }
 
-.back-to-top:hover {
-  background: #2eafec;
-  color: #fff;
+.back-to-top:hover i {
+  background: white;
+  color: black;
+  border: 4px solid white;
+  border-radius: 50px;
 }
 
 .back-to-top.active {
@@ -230,7 +233,7 @@ h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/hero-bg.jpg") top center;
+  background: url("../img/PSFix_20220114_130932.jpeg") top center;
   background-size: cover;
 }
 
@@ -550,24 +553,19 @@ section {
   color: #fff;
 }
 
-@-webkit-keyframes animate-loading {
-  0% {
-    transform: rotate(0deg);
-  }
+.contact button[type=submit] {
+  background: #149ddd;
+  border: 2px solid #149ddd;
+  padding: 10px 24px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+} 
 
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes animate-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+.contact button[type=submit]:hover {
+  background: white;
+  border: 2px solid #149ddd;
+  color: black;
 }
 
 /*--------------------------------------------------------------

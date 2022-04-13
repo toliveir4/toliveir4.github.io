@@ -11,6 +11,15 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #272829;
+
+  --white: white;
+  --black: black;
+  --dark-blue: #173b6c;
+  --darker-blue: #050d18;
+  --shadow: rgba(0, 0, 0, 0.12);
+  --contact-color: white;
+  --contact-color-1: #dff3fc;
+  --light-blue: #e4edf9;
 }
 
 a {
@@ -33,6 +42,22 @@ h6 {
 }
 
 /*--------------------------------------------------------------
+# Dark Mode
+--------------------------------------------------------------*/
+.dark-mode {
+  background-color: #040b14;
+  color: white;
+  --black: white;
+  --white: #040b14;
+  --dark-blue: #88b2ed;
+  --darker-blue: #b5caea;
+  --contact-color: #0b131e;
+  --contact-color-1: #040b14;
+  --light-blue: #0b131e;
+  --shadow: rgb(10, 10, 90, 0.12);
+}
+
+/*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
 .back-to-top {
@@ -45,7 +70,7 @@ h6 {
   background: #149ddd;
   width: 40px;
   height: 40px;
-  border: 1px solid #149ddd;
+  border: 0px solid #149ddd;
   border-radius: 50px;
   transition: all 0.4s;
 }
@@ -56,11 +81,8 @@ h6 {
   line-height: 0;
 }
 
-.back-to-top:hover i {
-  background: white;
-  color: black;
-  border: 4px solid white;
-  border-radius: 50px;
+.back-to-top:hover {
+  background: #37b3ed;
 }
 
 .back-to-top.active {
@@ -227,6 +249,69 @@ h6 {
   left: 0;
 }
 
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 22px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 11px;
+  width: 11px;
+  left: 4px;
+  bottom: 5px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: #2196F3;
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(30px);
+  -ms-transform: translateX(30px);
+  transform: translateX(30px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 22px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
@@ -304,7 +389,7 @@ section {
 }
 
 .section-bg {
-  background: #f5f8fd;
+  background: var(--white);
 }
 
 .section-title {
@@ -317,7 +402,7 @@ section {
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
-  color: #173b6c;
+  color: var(--dark-blue);
 }
 
 .section-title h2::after {
@@ -341,7 +426,7 @@ section {
 .about .content h3 {
   font-weight: 700;
   font-size: 26px;
-  color: #173b6c;
+  color: var(--dark-blue);
 }
 
 .about-photo {
@@ -385,7 +470,7 @@ section {
   font-weight: 700;
   margin-top: 20px;
   margin-bottom: 20px;
-  color: #050d18;
+  color: var(--darker-blue);
 }
 
 .resume .resume-item {
@@ -401,13 +486,13 @@ section {
   font-weight: 600;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
-  color: #050d18;
+  color: var(--darker-blue);
   margin-bottom: 10px;
 }
 
 .resume .resume-item h5 {
   font-size: 16px;
-  background: #e4edf9;
+  background: var(--light-blue);
   padding: 5px 15px;
   display: inline-block;
   font-weight: 600;
@@ -434,13 +519,17 @@ section {
   border-radius: 50px;
   left: -9px;
   top: 0;
-  background: #fff;
+  background: var(--white);
   border: 2px solid #1f5297;
 }
 
 /*--------------------------------------------------------------
 # Skills
 --------------------------------------------------------------*/
+.skill {
+  background-color: var(--white);
+}
+
 .skills .progress {
   height: 60px;
   display: block;
@@ -455,7 +544,7 @@ section {
   display: block;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
-  color: #050d18;
+  color: var(--darker-blue);
 }
 
 .skills .progress .skill .val {
@@ -484,9 +573,10 @@ section {
 
 .contact .info {
   padding: 30px;
-  background: #fff;
+  background: var(--contact-color);
   width: 100%;
-  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 5%;
+  box-shadow: 0 0 24px 0 var(--shadow);
 }
 
 .contact .info i {
@@ -495,7 +585,7 @@ section {
   float: left;
   width: 44px;
   height: 44px;
-  background: #dff3fc;
+  background: var(--contact-color-1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -508,54 +598,30 @@ section {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
-  color: #050d18;
+  color: var(--darker-blue);
 }
 
 .contact .info p {
   padding: 0 0 10px 60px;
   margin-bottom: 20px;
   font-size: 14px;
-  color: #173b6c;
+  color: var(--dark-blue);
 }
 
 .contact .info .email p {
   padding-top: 5px;
 }
 
-.contact .info .social-links {
-  padding-left: 60px;
-}
-
-.contact .info .social-links a {
-  font-size: 18px;
-  display: inline-block;
-  background: #333;
-  color: #fff;
-  line-height: 1;
-  padding: 8px 0;
-  border-radius: 50%;
-  text-align: center;
-  width: 36px;
-  height: 36px;
-  transition: 0.3s;
-  margin-right: 10px;
-}
-
-.contact .info .social-links a:hover {
-  background: #149ddd;
-  color: #fff;
-}
-
 .contact .info .email:hover i,
 .contact .info :hover i,
 .contact .info .phone:hover i {
   background: #149ddd;
-  color: #fff;
+  color: var(--white);
 }
 
 .contact button[type=submit] {
   background: #149ddd;
-  border: 2px solid #149ddd;
+  border: 0px solid #149ddd;
   padding: 10px 24px;
   color: #fff;
   transition: 0.4s;
@@ -563,9 +629,7 @@ section {
 } 
 
 .contact button[type=submit]:hover {
-  background: white;
-  border: 2px solid #149ddd;
-  color: black;
+  background: #37b3ed;
 }
 
 /*--------------------------------------------------------------

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Tiago Miguel Oliveira Portfolio - Index</title>
+    <title>Tiago Miguel Oliveira Portfolio</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -45,6 +45,19 @@
 
     {% load crispy_forms_tags %}
 
+    <!-- Send Success/Error Message -->
+    {% for message in messages %}
+    <div align="center" id="message" class="alert {{ message.tags }} alert-dismissible" role="alert">
+        <p> <strong>{{ message }}</strong> </p>
+    </div>
+    {% endfor %}
+
+    <script type="text/javascript">
+        setTimeout(function () {
+            bootstrap.Alert.getOrCreateInstance(document.querySelector("#message")).close();
+        }, 5000)
+    </script>
+
     <!-- ======= Mobile nav toggle button ======= -->
     <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
@@ -56,8 +69,7 @@
                 <img src="../static/img/hero-bg.jpg" alt="" class="img-fluid">
                 <h1 class="text-light"><a href="">Tiago Miguel Oliveira</a></h1>
                 <div class="social-links mt-3 text-center">
-                    <a href="https://www.facebook.com/toliveir4/" class="facebook"><i
-                            class="bx bxl-facebook"></i></a>
+                    <a href="https://www.facebook.com/toliveir4/" class="facebook"><i class="bx bxl-facebook"></i></a>
                     <a href="https://www.instagram.com/toliveir4/" class="instagram"><i
                             class="bx bxl-instagram"></i></a>
                     <a href="https://gitlab.com/toliveir_4" class="gitlab"><i class="bx bxl-gitlab"></i></a>
@@ -85,7 +97,6 @@
                         <label id="toggle" class="switch">
                             <input type="checkbox">
                             <span class="slider round"></span>
-                            
                         </label>
                     </div>
                 </ul>
@@ -364,6 +375,7 @@
                                 <button type="submit">Send Message</button>
                             </div>
                         </form>
+
                     </div>
 
                 </div>

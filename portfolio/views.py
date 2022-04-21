@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from django.views.generic import View
 from portfolio.forms import ContactForm  # requests library to do api calls
 from unidecode import unidecode
+from django.contrib import messages
 
 
 # Create your views here.
@@ -29,7 +30,9 @@ class Portfolio(View):
                           ["tiago.o.tocha@gmail.com"])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
+            messages.success(request, "Message sent.")
             return redirect("index")
 
+        messages.error(request, "Error. Message not sent.")
         form = ContactForm()
         return render(request, "index.html", {'contactForm': form})

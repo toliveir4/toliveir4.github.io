@@ -10,6 +10,7 @@
 }
 
 .hamburger i {
+    display: none;
     font-size: 24px;
     transition: transform 0.3s ease;
 }
@@ -317,6 +318,10 @@ footer {
 	.hamburger {
 		display: flex;
 	}
+
+    .hamburger i {
+        display: block;
+    }
 
 	.hamburger.open div:nth-child(1) {
 		transform: rotate(45deg);

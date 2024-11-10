@@ -30,16 +30,16 @@ document.addEventListener("DOMContentLoaded", () => {
 function toggleMenu() {
 	const nav = document.querySelector(".nav");
 	const hamburgerIcon = document.querySelector(".hamburger i");
+
 	nav.classList.toggle("show");
 
 	if (nav.classList.contains("show")) {
-		hamburgerIcon.classList.remove("fa-bars");
-		hamburgerIcon.classList.add("fa-times");
+		hamburgerIcon.classList.replace("fa-bars", "fa-times");
 	} else {
-		hamburgerIcon.classList.remove("fa-times");
-		hamburgerIcon.classList.add("fa-bars");
+		hamburgerIcon.classList.replace("fa-times", "fa-bars");
 	}
 }
+
 
 
 document.addEventListener("DOMContentLoaded", () => {

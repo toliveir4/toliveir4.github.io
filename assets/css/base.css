@@ -1,0 +1,143 @@
+@import url("theme.css");
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Satoshi", "Erode";
+	color: var(--text-color);
+	background-color: var(--background-color);
+	overflow-x: hidden;
+	min-height: 100vh;
+	margin: 0;
+    transition: background-color 0.1s ease, color 0.1s ease;
+}
+
+h1,
+h2,
+h3,
+p,
+a,
+span {
+	margin: 0;
+	padding: 0;
+}
+
+h1,
+h2,
+h3 {
+	font-weight: 500;
+	line-height: 1.2;
+}
+
+p,
+a,
+span {
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+header {
+	position: fixed;
+	z-index: 1;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 56px;
+	background-color: rgba(3, 3, 3, 0.8);
+	padding: 0 40px;
+	box-shadow: 0 2px 5px rgba(var(--text-color), 0.1);
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.logo h1 {
+	font-size: 24px;
+	margin: 0;
+	color: var(--text-color);
+}
+
+.theme-switcher {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.theme-switcher input {
+	display: none;
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+}
+
+.switch input {
+	display: none;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--slider-bg-color);
+	transition: 0.4s;
+	border-radius: 50px;
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.slider:before {
+	content: "";
+	position: absolute;
+	height: 26px;
+	width: 26px;
+	border-radius: 50%;
+	left: 4px;
+	bottom: 4px;
+	background-color: var(--slider-knob-color);
+	transition: 0.4s;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section {
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

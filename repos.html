@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Repositories</title>
+	<link rel="stylesheet" href="assets/css/repos.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+	<script src="js/repos.js"></script>
+	<script src="js/toggleTheme.js"></script>
+</head>
+<body>
+	<header>
+		<div class="logo">
+			<div class="theme-switcher">
+				<input type="checkbox" id="theme-toggle" onclick="toggleTheme()" />
+				<label for="theme-toggle" class="switch">
+					<div class="slider"></div>
+				</label>
+			</div>
+			<h1>Projects</h1>
+		</div>
+		<i class="fa fa-arrow-left back-icon" onclick="goBack()"></i>
+	</header>
+	<main>
+		<div class="controls">
+			<input type="text" id="search-bar" placeholder="Search repositories..." oninput="filterRepositories()" />
+			<select id="sort-options" onchange="sortRepositories()">
+				<option value="name">Sort by Name</option>
+				<option value="stars">Sort by Stars</option>
+				<option value="updated">Sort by Updated</option>
+			</select>
+			<label>
+				<input type="checkbox" id="archived-filter" onchange="filterRepositories()" />
+				Show Archived
+			</label>
+		</div>
+		<section id="repos-list"></section>
+	</main>
+</body>
+</html>
